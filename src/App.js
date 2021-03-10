@@ -1,10 +1,6 @@
 import './App.css';
-import Header from './Components/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import stadium from './Components/Images/Stadium.jpg'
-import Team from './Components/Team/Team';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import TeamsCollection from './Components/Team/TeamsCollection';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,41 +9,36 @@ import {
 } from "react-router-dom";
 import TeamDetail from './Components/TeamDetail/TeamDetail';
 import { useEffect, useState } from 'react';
+import ErrorShow from './Components/ErrorShow/ErrorShow';
 
 function App() {
-  const [teams,setTeams] = useState([]);
-    useEffect(()=>
+  const [teams, setTeams] = useState([]);
+  useEffect(() =>
     fetch("https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League")
-    .then(res=>res.json())
-    .then(data=>setTeams(data.teams))
-    ,[])
-    const [isChanged,setIsChanged] = useState(false)
-    const buttonClick=()=>{
-      setIsChanged(true)
-
-    }
+      .then(res => res.json())
+      .then(data => setTeams(data.teams))
+    , [])
   return (
     <div className="App ">
-     
-       <div className="">
-       <Router>
-         <Switch>
-           <Route exact path="/"><Team teams={teams}></Team>
-           </Route>
-           <Route path="/details/:idTeam">
-               <div className="">
-               <TeamDetail></TeamDetail>
-               </div>
 
-           </Route>
-           <Route path='*'>
-            <div className="container">
-            <Header></Header>
-            </div>
-           </Route>
-         </Switch>
-       </Router>
-       </div>
+      <div className="">
+        <Router>
+          <Switch>
+            <Route exact path="/"><TeamsCollection teams={teams}></TeamsCollection>
+            </Route>
+            <Route path="/details/:idTeam">
+              <div className="">
+                <TeamDetail></TeamDetail>
+              </div>
+            </Route>
+            <Route path='*'>
+              <div>
+                <ErrorShow></ErrorShow>
+              </div>
+            </Route>
+          </Switch>
+        </Router>
+      </div>
     </div>
   );
 }
