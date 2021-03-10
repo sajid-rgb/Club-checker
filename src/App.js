@@ -28,17 +28,22 @@ function App() {
     }
   return (
     <div className="App ">
-       <Header isChanged={isChanged} setIsChanged={setIsChanged} ></Header>
-       <div className="container">
+     
+       <div className="">
        <Router>
          <Switch>
-           <Route exact path="/"><Team teams={teams}></Team></Route>
+           <Route exact path="/"><Team teams={teams}></Team>
+           </Route>
            <Route path="/details/:idTeam">
-             <TeamDetail></TeamDetail>
+               <div className="">
+               <TeamDetail></TeamDetail>
+               </div>
 
            </Route>
            <Route path='*'>
-             <h4>Error</h4>
+            <div className="container">
+            <Header></Header>
+            </div>
            </Route>
          </Switch>
        </Router>

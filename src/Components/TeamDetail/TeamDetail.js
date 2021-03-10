@@ -12,10 +12,12 @@ const TeamDetail = () => {
     })
     return (
         <div>
+            <div className=''>
             {
                 team.map(tm=><TeamDetailsCard team={tm} key={tm.idTeam}></TeamDetailsCard>)
             }
             
+        </div>
         </div>
     );
 };

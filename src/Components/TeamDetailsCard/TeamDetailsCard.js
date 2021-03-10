@@ -4,9 +4,11 @@ import React, { useState } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import male from '../Images/male.png'
 import female from '../Images/female.png'
+import Footer from '../Footer/Footer';
+import TeamDetailsHeader from '../../TeamDetailsHeader/TeamDetailsHeader';
 const TeamDetailsCard = (props) => {
     const {team}=props
-    const {strTeam,intFormedYear,strSport,strStadiumThumb}=team;
+    const {strTeam,intFormedYear,strSport,strStadiumThumb,strTeamBadge,strDescriptionEN,strDescriptionDE,strWebsite,strFacebook,strTwitter,strInstagram}=team;
     const [isClicked,setIsClicked] =useState(false)
     const femaleButtonClick=()=>{
         setIsClicked(true);
@@ -15,8 +17,9 @@ const TeamDetailsCard = (props) => {
         setIsClicked(false);
     }
     return (
-        <div>
-            <div className='row bg-danger mt-3 '> 
+        <div >
+            <TeamDetailsHeader stadium={strStadiumThumb} logo={strTeamBadge}></TeamDetailsHeader>
+            <div className='row bg-danger mt-3 container mx-auto '> 
                 <Card className="col-md-7 bg-danger border-0 w-75" >
                     <Card.Body className='text-white'>
                         <Card.Title><h2>{strTeam}</h2></Card.Title>
@@ -36,10 +39,14 @@ const TeamDetailsCard = (props) => {
                     </Card>
 
             </div>
-            <div className="text-white">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur a perspiciatis mollitia blanditiis asperiores. Cupiditate minima voluptas dolor velit hic quaerat facilis? Voluptatibus unde molestias laboriosam eius aliquam reiciendis et, vero voluptas possimus tenetur aperiam numquam quisquam eum. Dolorem assumenda, libero nemo sequi pariatur iste, provident natus quia, repellendus ducimus vitae. Vero accusantium vitae debitis sapiente veniam magni quis sequi dolorum illum voluptatem, quia, id nulla suscipit nemo sit optio.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur a perspiciatis mollitia blanditiis asperiores. Cupiditate minima voluptas dolor velit hic quaerat facilis? Voluptatibus unde molestias laboriosam eius aliquam reiciendis et, vero voluptas possimus tenetur aperiam numquam quisquam eum. Dolorem assumenda, libero nemo sequi pariatur iste, provident natus quia, repellendus ducimus vitae. Vero accusantium vitae debitis sapiente veniam magni quis sequi dolorum illum voluptatem, quia, id nulla suscipit nemo sit optio.</p>
+            <div className="text-white container">
+               <p>{strDescriptionEN}</p>
+               <p>{strDescriptionDE}</p>
             </div>
+            <div className="container">
+            <Footer website={strWebsite} facebook={strFacebook} twitter ={strTwitter} instagram={strInstagram}></Footer>
+            </div>
+           
         </div>
     );
 };

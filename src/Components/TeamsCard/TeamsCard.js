@@ -8,6 +8,7 @@ import {
     Route,
     Link
   } from "react-router-dom";
+  
 const TeamsCard = (props) => {
     const {team} = props;
     const {strTeam,strTeamBadge,strSport,idTeam} = team;

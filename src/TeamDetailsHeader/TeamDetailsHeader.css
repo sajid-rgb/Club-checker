@@ -1,0 +1,24 @@
+
+.clubLogo{
+        
+    width:15%;
+    margin-top: 100px;
+
+}
+@media (max-width:500px){
+    .clubLogo{
+        
+        width:50%;
+        margin-top: 100px;
+    
+    }
+} 
+@media (min-width:501px) and (max-width:991px){
+    .clubLogo{
+        
+        width:30%;
+        margin-top: 0px;
+    
+    
+    }
+} 
