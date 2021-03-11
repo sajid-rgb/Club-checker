@@ -17,8 +17,7 @@ const TeamsCard = (props) => {
                     <Card.Title><h2 className='text-dark'>{strTeam}</h2></Card.Title>
                     <Card.Text className='text-dark'>Sports type: {strSport}</Card.Text>
                 </Card.Body>
-                <Link to={"/details/" + idTeam}><Button variant="danger" className='mb-3'>Explore <FontAwesomeIcon icon={faArrowRight} /></Button>
-                    </Link>
+                <Button as={Link} to={"/details/" + idTeam} variant="danger" className='mb-3 w-50 mx-auto'>Explore <FontAwesomeIcon icon={faArrowRight} /></Button>
             </Card>
         </div>
     );
