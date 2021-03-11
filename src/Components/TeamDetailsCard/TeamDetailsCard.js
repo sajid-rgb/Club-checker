@@ -26,13 +26,13 @@ const TeamDetailsCard = (props) => {
                 </Card>
                 <Card className="col-md-5 bg-danger border-0  ">
                     {
-                        strGender === "Female" ? <Card.Img src={female} className=' w-75 ml-5  mt-4 mb-2 mb-md-0'></Card.Img>
-                            : strGender === "Male" ? <Card.Img src={male} className=' w-75 ml-5  mt-4 mb-2 mb-md-0'></Card.Img> : <p>Error Pic not Found</p>
+                        strGender === "Male" ? <Card.Img src={male} className=' w-75 ml-5  mt-4 mb-2 mb-md-0'></Card.Img>
+                            : <Card.Img src={female} className=' w-75 ml-5  mt-4 mb-2 mb-md-0'></Card.Img>
                     }
                 </Card>
 
             </div>
-            <div className="text-white container">
+            <div className="text-white container text-justify text-white">
                 <p>{strDescriptionEN}</p>
                 <p>{strDescriptionDE}</p>
             </div>

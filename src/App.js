@@ -24,6 +24,8 @@ function App() {
       <div className="">
         <Router>
           <Switch>
+          <Route path="/home"><TeamsCollection teams={teams}></TeamsCollection>
+            </Route>
             <Route exact path="/"><TeamsCollection teams={teams}></TeamsCollection>
             </Route>
             <Route path="/details/:idTeam">
